@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AADT</string>
+    <string name="notifications_title">جرب كل طرق التنبيه </string>
+    <string name="snackbar_button_text">دوس هنا عشان تشوف السناك بار</string>
+    <string name="snackbar_text">برافو إنت اظهرت سناك بار</string>
+    <string name="toast_text">السناك بار قفلت </string>
+    <string name="snackbar_action">اقفل </string>
+    <string name="notification_button_text">ابعتلي Notification </string>
+    <string name="primary_notification_description"> رساله من القناه الرئيسيه</string>
+</resources>

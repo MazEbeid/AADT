@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/notifications_menu_item"
+        android:title="Notifications"
+        android:icon="@android:drawable/sym_action_chat" />
+    <item android:id="@+id/ui_menu_item"
+        android:title="UI"
+        android:icon="@android:drawable/ic_menu_camera" />
+    <item android:id="@+id/data_menu_item"
+        android:title="Data Management"
+        android:icon="@android:drawable/ic_menu_upload" />
+</menu>

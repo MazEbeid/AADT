@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AADT</string>
+    <string name="notifications_title">Test the different user notifications</string>
+    <string name="snackbar_button_text">View Snackbar</string>
+    <string name="snackbar_text">You have displayed a Snackbar</string>
+    <string name="toast_text">You have dismissed the Snackbar</string>
+    <string name="snackbar_action">Dismiss </string>
+    <string name="notification_button_text">Notify Me! </string>
+    <string name="primary_notification_description">This is a notification on the Primary Channel</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

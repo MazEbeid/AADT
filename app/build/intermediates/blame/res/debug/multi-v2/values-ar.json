@@ -1,0 +1,56 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/mebeid/Desktop/Mazen/AADT/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ar/values-ar.xml",
+            "map": [
+                {
+                    "source": "/Users/mebeid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/16bfe0c28db982bf37609263de461b0d/res/values-ar/values-ar.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,23",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,222,326,435,517,618,732,811,890,969,1074,1175,1271,1379,1482,1585,1740,2108",
+                        "endColumns": "116,103,108,81,100,113,78,78,78,104,100,95,107,102,102,154,96,80",
+                        "endOffsets": "217,321,430,512,613,727,806,885,964,1069,1170,1266,1374,1477,1580,1735,1832,2184"
+                    }
+                },
+                {
+                    "source": "/Users/mebeid/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/2ccdc50d573543596d2f334f9f3940f1/res/values-ar/values-ar.xml",
+                    "from": {
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "2384",
+                        "endColumns": "100",
+                        "endOffsets": "2480"
+                    }
+                },
+                {
+                    "source": "/Users/mebeid/Desktop/Mazen/AADT/app/src/main/res/values-ar/strings.xml",
+                    "from": {
+                        "startLines": "-1,-1,2,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,4,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,58,-1,-1,-1,-1,-1",
+                        "endColumns": "-1,-1,67,-1,-1,-1,-1,-1",
+                        "endOffsets": "-1,-1,121,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "19,20,21,22,24,25,26,28",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "1837,1879,1953,2021,2189,2239,2317,2485",
+                        "endColumns": "41,73,67,86,49,77,66,55",
+                        "endOffsets": "1874,1948,2016,2103,2234,2312,2379,2536"
+                    }
+                }
+            ]
+        }
+    ]
+}
