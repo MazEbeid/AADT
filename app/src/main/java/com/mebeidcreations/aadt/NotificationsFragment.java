@@ -4,7 +4,10 @@ package com.mebeidcreations.aadt;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -22,24 +25,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import static android.content.Context.JOB_SCHEDULER_SERVICE;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
-public class NotificationsFragment  extends Fragment {
+public class NotificationsFragment extends Fragment {
 
-
-    Button viewSnackBarButton, notifyMeButton;
-
+    private static final int JOB_ID = 0;
     private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
-
     private static final String ACTION_UPDATE_NOTIFICATION =
             "com.mebeidcreations.aadt.ACTION_UPDATE_NOTIFICATION";
-
-    private NotificationReceiver mReceiver = new NotificationReceiver();
-
     private static final int NOTIFICATION_ID = 0;
-    private NotificationManager mNotifyManager;
-
     final int duration = Toast.LENGTH_SHORT;
+    Button viewSnackBarButton, notifyMeButton;
+    private JobScheduler mScheduler;
+    private Button scheduleButton, cancelButton;
+    private NotificationReceiver mReceiver = new NotificationReceiver();
+    private NotificationManager mNotifyManager;
 
     public static NotificationsFragment newInstance() {
         return new NotificationsFragment();
@@ -56,12 +57,27 @@ public class NotificationsFragment  extends Fragment {
         // TODO Auto-generated method stub
 
 
-        View view=inflater.inflate(R.layout.fragment_notifications, container, false);
-        viewSnackBarButton  = view.findViewById(R.id.view_snackbar_button);
-        notifyMeButton  = view.findViewById(R.id.notification_button);
+        View view = inflater.inflate(R.layout.fragment_notifications, container, false);
+        viewSnackBarButton = view.findViewById(R.id.view_snackbar_button);
+        notifyMeButton = view.findViewById(R.id.notification_button);
 
 
-        getActivity().registerReceiver(mReceiver,new IntentFilter(ACTION_UPDATE_NOTIFICATION));
+        scheduleButton = view.findViewById(R.id.schedule_job);
+        scheduleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scheduleJob();
+            }
+        });
+
+        cancelButton = view.findViewById(R.id.cancel_jobs_button);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancelJobs();
+            }
+        });
+        getActivity().registerReceiver(mReceiver, new IntentFilter(ACTION_UPDATE_NOTIFICATION));
 
         viewSnackBarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +86,7 @@ public class NotificationsFragment  extends Fragment {
                 Snackbar.make(viewSnackBarButton, R.string.snackbar_text, Snackbar.LENGTH_LONG).setAction(R.string.snackbar_action, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getActivity().getApplicationContext(),R.string.toast_text,duration).show();
+                        Toast.makeText(getActivity().getApplicationContext(), R.string.toast_text, duration).show();
                     }
                 }).show();
             }
@@ -86,18 +102,20 @@ public class NotificationsFragment  extends Fragment {
                 sendNotification();
             }
         });
+
+
         createNotificationChannel(); //
         return view;
     }
 
-    public void sendNotification()
-    {
+    public void sendNotification() {
         NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
         mNotifyManager.notify(NOTIFICATION_ID, notifyBuilder.build());
     }
+
     public void createNotificationChannel() {
 
-        mNotifyManager = (NotificationManager)getActivity().
+        mNotifyManager = (NotificationManager) getActivity().
                 getSystemService(NOTIFICATION_SERVICE); //create a notification manager
 
         NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_ID,
@@ -112,21 +130,47 @@ public class NotificationsFragment  extends Fragment {
     }
 
 
-    private NotificationCompat.Builder getNotificationBuilder(){
+    private NotificationCompat.Builder getNotificationBuilder() {
 
         Bitmap androidImage = BitmapFactory
-                .decodeResource(getResources(),R.drawable.mascot_1);
-        Intent notificationIntent = new Intent( getActivity().getApplicationContext(), MainActivity.class);
+                .decodeResource(getResources(), R.drawable.mascot_1);
+        Intent notificationIntent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
 
-        PendingIntent notificationPendingIntent = PendingIntent.getActivity( getActivity().getApplicationContext(),
+        PendingIntent notificationPendingIntent = PendingIntent.getActivity(getActivity().getApplicationContext(),
                 NOTIFICATION_ID, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        return new NotificationCompat.Builder( getActivity().getApplicationContext(), PRIMARY_CHANNEL_ID)
+        return new NotificationCompat.Builder(getActivity().getApplicationContext(), PRIMARY_CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_android).setContentIntent(notificationPendingIntent)
                 .setAutoCancel(true)
                 .setContentText("Drag to see the big picture :)")
                 .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(androidImage)
                         .setBigContentTitle(getText(R.string.primary_notification_description)));
+    }
+
+    public void scheduleJob() {
+        mScheduler = (JobScheduler) getActivity().getSystemService(JOB_SCHEDULER_SERVICE);
+
+        ComponentName serviceName = new ComponentName(getActivity().getPackageName(),
+                NotificationJobService.class.getName());
+
+        JobInfo.Builder builder = new JobInfo.Builder(JOB_ID, serviceName)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                .setRequiresDeviceIdle(false)
+                .setRequiresCharging(true);
+
+        JobInfo jobInfo = builder.build();
+
+        mScheduler.schedule(jobInfo);
+    }
+
+    public void cancelJobs() {
+
+        if (mScheduler != null) {
+            mScheduler.cancelAll();
+            mScheduler = null;
+            Toast.makeText(getActivity().getApplicationContext(), "Jobs Cancelled", Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 
     public class NotificationReceiver extends BroadcastReceiver {
@@ -140,6 +184,4 @@ public class NotificationsFragment  extends Fragment {
             // Update the notification
         }
     }
-
-
 }

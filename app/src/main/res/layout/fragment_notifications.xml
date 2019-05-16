@@ -54,4 +54,41 @@
         app:layout_constraintTop_toBottomOf="@+id/greeting_text"
         app:layout_constraintVertical_bias="0.172" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="355dp"
+        android:layout_height="77dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:text="Schedule a notification using Android's JobService. The notifaction has the following constraints: The phone has to be connected to WIFI and the Phone has to be connected to the charger"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notification_button" />
+
+    <Button
+        android:id="@+id/schedule_job"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="106dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="8dp"
+        android:text="Schedule Job"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/cancel_jobs_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="106dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="16dp"
+        android:text="Cancel Jobs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_job" />
+
 </android.support.constraint.ConstraintLayout>

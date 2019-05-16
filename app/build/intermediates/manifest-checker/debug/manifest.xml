@@ -25,6 +25,10 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name="com.mebeidcreations.aadt.NotificationJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"
             android:authorities="com.mebeidcreations.aadt.com.android.tools.ir.server.InstantRunContentProvider"
