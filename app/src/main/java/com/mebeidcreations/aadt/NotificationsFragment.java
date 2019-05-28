@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import static android.content.Context.JOB_SCHEDULER_SERVICE;
@@ -38,9 +39,9 @@ public class NotificationsFragment extends Fragment {
     final int duration = Toast.LENGTH_SHORT;
     Button viewSnackBarButton, notifyMeButton;
     private JobScheduler mScheduler;
-    private Button scheduleButton, cancelButton;
     private NotificationReceiver mReceiver = new NotificationReceiver();
     private NotificationManager mNotifyManager;
+
 
     public static NotificationsFragment newInstance() {
         return new NotificationsFragment();
@@ -61,8 +62,9 @@ public class NotificationsFragment extends Fragment {
         viewSnackBarButton = view.findViewById(R.id.view_snackbar_button);
         notifyMeButton = view.findViewById(R.id.notification_button);
 
+        final EditText activityDataField = view.findViewById(R.id.activity_data_field);
 
-        scheduleButton = view.findViewById(R.id.schedule_job);
+        Button scheduleButton = view.findViewById(R.id.schedule_job);
         scheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +72,7 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
-        cancelButton = view.findViewById(R.id.cancel_jobs_button);
+        Button cancelButton = view.findViewById(R.id.cancel_jobs_button);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +105,18 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
+
+        Button sendButton = view.findViewById(R.id.send_button);
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String data  = activityDataField.getText().toString();
+                Intent sendDataToActivity = new Intent(getContext(),ReceivingActivity.class);
+                sendDataToActivity.putExtra("data", data);
+                startActivity(sendDataToActivity);
+            }
+        });
 
         createNotificationChannel(); //
         return view;

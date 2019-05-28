@@ -56,9 +56,9 @@ bottomNavigationView = findViewById(R.id.bottom_navigation);
                             case R.id.ui_menu_item:
                                 selectedFragment = UIFragment.newInstance();
                                 break;
-//                            case R.id.action_item3:
-//                                selectedFragment = ItemThreeFragment.newInstance();
-//                                break;
+                            case R.id.data_menu_item:
+                            selectedFragment = DataFragment.newInstance();
+                            break;
                         }
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.fragment_container, selectedFragment);

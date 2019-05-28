@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mebeid/Desktop/Mazen/AADT/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v17/values-v17.xml",
+            "outputFile": "C:\\Mazen\\AndroidStudioProjects\\AADT\\AADT\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v17\\values-v17.xml",
             "map": [
                 {
-                    "source": "/Users/mebeid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/16bfe0c28db982bf37609263de461b0d/res/values-v17/values-v17.xml",
+                    "source": "C:\\Users\\Mazen Ebeid\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\bb75f11d54ecbc6656f6c2195b15f9fa\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,26,29,32,35,39,42,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",

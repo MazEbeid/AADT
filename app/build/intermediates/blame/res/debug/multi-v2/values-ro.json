@@ -1,10 +1,20 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mebeid/Desktop/Mazen/AADT/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ro/values-ro.xml",
+            "outputFile": "C:\\Mazen\\AndroidStudioProjects\\AADT\\AADT\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
             "map": [
                 {
-                    "source": "/Users/mebeid/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/2ccdc50d573543596d2f334f9f3940f1/res/values-ro/values-ro.xml",
+                    "source": "C:\\Users\\Mazen Ebeid\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\bb75f11d54ecbc6656f6c2195b15f9fa\\res\\values-ro\\values-ro.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,226,330,443,531,643,764,849,930,1013,1125,1238,1338,1452,1557,1663,1827,1930",
+                        "endColumns": "120,103,112,87,111,120,84,80,82,111,112,99,113,104,105,163,102,82",
+                        "endOffsets": "221,325,438,526,638,759,844,925,1008,1120,1233,1333,1447,1552,1658,1822,1925,2008"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Mazen Ebeid\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\082cb8462105691350b76434deb2c10c\\res\\values-ro\\values-ro.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -18,16 +28,6 @@
                         "startOffsets": "2013",
                         "endColumns": "100",
                         "endOffsets": "2109"
-                    }
-                },
-                {
-                    "source": "/Users/mebeid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/16bfe0c28db982bf37609263de461b0d/res/values-ro/values-ro.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,226,330,443,531,643,764,849,930,1013,1125,1238,1338,1452,1557,1663,1827,1930",
-                        "endColumns": "120,103,112,87,111,120,84,80,82,111,112,99,113,104,105,163,102,82",
-                        "endOffsets": "221,325,438,526,638,759,844,925,1008,1120,1233,1333,1447,1552,1658,1822,1925,2008"
                     }
                 }
             ]
